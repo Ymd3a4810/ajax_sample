@@ -1,19 +1,27 @@
-function getData() {
-    // 1.XMLHttpRequestオブジェクトを生成する
-    const request = new XMLHttpRequest(); //-- 1
-    // 2. XMLHttpRequestオブジェクトにイベントハンドラを設定して、通信時の処理を設定する
-    request.onreadystatechange = function() { //-- 2-1
-      if (request.readyState == 4) { //-- 2-2
-        if(request.status == 200) { //-- 2-3
-          console.log(request.response); //-- 2-4
+$(function() {
+    const button = $("#btn");
+    const videoArea = $("#video");
+    const titleArea = $("#title");
+    const contentArea = $("#content");
+    let number = 0;
+  
+    function getData() {
+      $.ajax('ajax.json',{
+        success: function(data){
+          return data; //--1
         }
-      }
-    }
-    // 3. リクエストを送信
-    request.open("GET", "data.txt"); //-- 3-1
-    request.responseType = "text"; //-- 3-2
-    request.send(null); //-- 3-3
-  }
+      })
+    };
   
-  window.onload = getData;
+    function changeVideo() {
+      button.click(function(){
+        const videoData = getData(); //--2
+        videoArea.html(videoData[number].url);
+        titleArea.html(videoData[number].title);
+        contentArea.html(videoData[number].content);
+        number == 2 ? number = 0 : number++;
+      });
+    };
   
+    changeVideo();
+  })
