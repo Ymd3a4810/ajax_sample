@@ -1,4 +1,21 @@
+## 5/2
+### 配列の長さを確認する
+https://www.javadrive.jp/javascript/array/index6.html
 
+### 三項演算子
+https://www.sejuku.net/blog/23627
+
+### Chromeスーパーリロード (※めちゃくちゃ重要)
+[shift + cmd + R] または [shift + cmd + リロードボタン]
+
+https://itreat.co.jp/blog/cash#:~:text=Google%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%98%E3%83%AB%E3%83%97-,Mac%E7%89%88,%2B%20R%5D%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82
+
+
+### ブラウザでJSが読み直されない場合の裏技
+ダンダムなクエリ文字列を付与する
+http://localhost:8080/?t=sdfsaf2
+
+## 4/28
 ### sudoについて
 - インストール
 `sudo npm install -g http-server`

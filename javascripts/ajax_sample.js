@@ -22,7 +22,8 @@ function getData() {
       console.log(textStatus);
       console.log(jqXHR);
       // TODO: 取得したデータをdataに格納する
-
+      data = data1;
+     
 		// 6. failは、通信に失敗した時に実行される
 		}).fail(function(jqXHR, textStatus, errorThrown ) {
 			console.log("fail");
@@ -34,19 +35,30 @@ function getData() {
 
 function changeVideo() {
   // TOOD1: データなければgetDataを呼ぶ
-  // TODO2: ボタンにclickイベントリスナを設定する 
-  // TODO3: titleAreaやcontentAreaにデータを設定する
-
-  // ボタンがクリックされた際の処理を記述
-  /* data.btn.click(function(){
-  // ajax.jsonからデータを取得していない場合のみ、getDataの処理を呼び出す
-  const findData = data.findIndex(data => );
-  if(findData == -1){
-  const videoData = getData(); //--2
-      number == 2 ? number = 0 : number++;
-    };
+  if(data.length === 0){
+    getData();
   }
-  );*/
+  // TODO2: ボタンにclickイベントリスナを設定する 
+  button.addEventListener('click', e => { //--4
+    console.log(data);
+    console.log(number);
+    // data は配列 data[0], data[1], 
+    // TODO3: titleAreaやcontentAreaにデータを設定する
+    // Example: titleArea.innerHTML = data[number]["title"];
+    titleArea.innerHTML = data[number].title; //--5
+    contentArea.innerHTML = data[number].content; //--5
+    videoArea.setAttribute("src", data[number].url); 
+  
+    // 何個目のデータを表示するかという情報を管理している
+    number == 2 ? number = 0 : number++;
+
+    // Example:
+    // (number == 2) ? (number = 0) : (number++);
+    // (条件式) ? (Trueの場合) : (Falseの場合)
+    // let hoge = (number  == 2) ? 1 : 0;
+    // number = (number == 2) ? 0 : number + 1;
+  })
 }
+
 
 window.onload = changeVideo;
